@@ -9,9 +9,14 @@
 #import "OCTClient.h"
 
 @class OCTRepository;
+@class OCTIssue;
 
 @interface OCTClient (Issues)
 
 - (RACSignal *)fetchOpenIssuesForRepository:(OCTRepository *)repository;
+
+- (RACSignal *)postComment:(NSString *)comment forIssue:(OCTIssue *)issue inRepository:(OCTRepository *)repository;
+
+- (RACSignal *)closeIssue:(OCTIssue *)issue inRepository:(OCTRepository *)repository;
 
 @end
